@@ -13,7 +13,7 @@ This setup allows you to:
 Worth noting:
 
 - All communication happens over encrypted SSH/SCP.
-- The only time a file is backed up to S3 is when the system identifies a new, unique file path that does not already exist on S3. This means that it old backups will never be overwritten unless you delete the backup files manually.
+- The only time a file is backed up to S3 is when the system identifies a new, unique file path that does not already exist on S3. This means that it *old backups will never be overwritten* unless you delete the backup files manually.
 
 ### Instructions
 
