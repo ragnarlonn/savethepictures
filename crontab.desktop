@@ -1,0 +1,3 @@
+# Crontab entry for home desktop computer that keeps a local copy of everything on the backup server
+# Syncing once/day at 3:44am
+44 3 * * * rsync -avHe ssh pi@192.168.0.101:/media/usb1/ragnar /Users/ragnarlonn/Backup >/dev/null
