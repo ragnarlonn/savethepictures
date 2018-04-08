@@ -1,0 +1,3 @@
+# Install this crontab on the Raspberry PI file server. Do of course change the PASSPHRASE to
+# something else. This string will be used to encrypt the files that are sent to S3
+56 01 * * * PASSPHRASE="someverysecretstring" /home/pi/sync-oneway-to-s3.sh >>/tmp/sync-oneway-to-s3.log 2>&1
