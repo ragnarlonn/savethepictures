@@ -1,5 +1,7 @@
 # savethepictures
-Save my pictures in a redundant and secure way
+
+A very simple backup system, to save especially family pictures and videos but also any other data you
+want to keep safe.
 
 - Get a Raspberry PI, or similar, to be the local (in your home) backup server
 - Install Raspbian on the PI
