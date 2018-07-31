@@ -32,7 +32,7 @@ Worth noting:
 
 ### Operations
 
-- Foldersync and the crontabs should run automatically, keeping data backed up and in sync
+- Foldersync and the crontabs should run automatically, keeping data backed up and in sync but __never__ overwrite old data anywhere (you may need to configure Foldersync to behave that way when it is copying things to the raspberry PI server)
 
 - Occasionally, buy a new USB memory stick and store the old one in a safe place (e.g. a bank vault). Or just use two memory sticks that you swap occasionally. The point is to keep one physical storage device that is completely disconnected from all networks, ensuring that someone hacking your online presence cannot delete all your data.
 
