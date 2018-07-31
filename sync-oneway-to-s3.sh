@@ -1,8 +1,8 @@
 #!/bin/bash
 
 AWSCLI=/usr/local/bin/aws
-S3BUCKET=ragnar-lonn-org
-LOCALDIR=/media/usb1/ragnar
+S3BUCKET=my-s3-bucket
+LOCALDIR=/path/to/backup/dir
 
 S3LIST=/tmp/s3filelist.$$.tmp
 LOCALLIST=/tmp/localfilelist.$$.tmp
@@ -16,14 +16,9 @@ echo "Starting `date`"
 
 # Create a list of all files currently in the S3 bucket
 ${AWSCLI} s3 ls --recursive s3://${S3BUCKET} >$S3LIST
-#2017-02-04 21:14:56          5 hej/hopp
-#2017-02-04 21:18:36          4 hej/san/sa
-#2017-02-05 10:17:42          3 hej/san/saa
 
 # Create a list of all files currently in the local backup folder
 find ${LOCALDIR} -type f >${LOCALLIST}
-#/media/usb1/ragnar/Amalia/Amalia/pregnancy pictures/untitled folder/IMG_2621.JPG
-#/media/usb1/ragnar/Amalia/Amalia/Veckobrev 40.docx
 
 IFS=$'\r\n' GLOBIGNORE='*' command eval 'LOCALFILES=($(cat '${LOCALLIST}'))'
 for FILEPATH in "${LOCALFILES[@]}"
