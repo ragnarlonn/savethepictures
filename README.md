@@ -36,4 +36,18 @@ Worth noting:
 
 - Occasionally, buy a new USB memory stick and store the old one in a safe place (e.g. a bank vault). Or just use two memory sticks that you swap occasionally. The point is to keep one physical storage device that is completely disconnected from all networks, ensuring that someone hacking your online presence cannot delete all your data.
 
-- Swapping memory sticks requires you to sync data from the old stick to the new before replacing it, of course.
+- Swapping memory sticks requires you to sync data from the old stick to the new before replacing it, of course. 
+
+### Syncing a new USB stick
+
+The script sync-new-usb.sh will copy files from an existing USB memory (i.e. its mount point, or any directory path you point it to) to a new memory and *also* check S3 storage for any files there that didn't exist locally. Any S3 files that weren't found locally will be downloaded and decrypted before being stored on the new USB memory.
+
+*First edit the script and enter the name of your S3 bucket, at the top of the script*
+
+`./sync-new-usb.sh /media/usb1 /mnt mysecretpassphrase 1000`
+
+The above command will check what files exist under /media/usb1 that do not exist under /mnt and then copy those to /mnt. Then it will also check if there are any files in the S3 bucket (but with a .gpg ending) that don't exist locally. Such files will be downloaded from S3 and decrypted using the passphrase "mysecretpassphrase". Max 1000 files will be copied, in total. Then the script exits. You can run the script multiple times with the same parameters, copying new files each time as it will not overwrite old files.
+
+
+
+
