@@ -25,7 +25,7 @@ for FILEPATH in "${LOCALFILES[@]}"
 do
   RELPATH=`echo "$FILEPATH" |awk '{s=$0; sub("^'${LOCALDIR}'/","",s); print s}'`
   OUTFILE="${RELPATH}.gpg"
-  if grep "${OUTFILE}\$" ${S3LIST} >/dev/null ; then
+  if grep -F "${OUTFILE}" ${S3LIST} >/dev/null ; then
     DUPLICATES=`expr $DUPLICATES + 1`
     #echo "Not copying ${FILEPATH} (${OUTFILE} already exists)"
   else
